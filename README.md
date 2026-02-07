@@ -94,6 +94,10 @@ Create `res/xml/restrictions.xml`:
   "deviceName": "${esper.deviceName}"
 }
 ```
+Note on IP Address Handling
+Managed Configuration is intended for static identifiers (UUID, serial number, MAC, IMEI).
+IP addresses are dynamic and may change after provisioning, so the application must always use Android networking APIs to fetch the current IP at runtime and report it to the backend.
+Even if an IP were included in Managed Config, runtime validation would still be required.
 
 ## 🌐 Backend → Esper API Flow
 
