@@ -57,19 +57,19 @@ The project is tenant-agnostic, customer-neutral, and GitHub-friendly.
 ```
 
 ## 🚀 Quick Start
-	1.	Clone the repository
-	2.	Add restrictions.xml to your Android app
-	3.	Configure Managed Config in an Esper Blueprint
-	4.	Provision a device
-	5.	Run the backend service
+	1. Clone the repository
+	2. Add `restrictions.xml` to your Android app
+	3. Configure Managed Config in an Esper Blueprint
+	4. Provision a device
+	5. Run the backend service
 
 ---
 
 ## 🛠️ Android App Setup
 
-Create res/xml/restrictions.xml:
+Create `res/xml/restrictions.xml`:
 
-```
+```xml
 <restrictions xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
