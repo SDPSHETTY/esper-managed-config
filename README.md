@@ -67,11 +67,11 @@ The test app is intended for **validation and reference purposes only**.
 ```
 
 ## 🚀 Quick Start
-	1. Clone the repository
-	2. Add `restrictions.xml` to your Android app
-	3. Configure Managed Config in an Esper Blueprint
-	4. Provision a device
-	5. Run the backend service
+1. Clone the repository
+2. Add `restrictions.xml` to your Android app
+3. Configure Managed Config in an Esper Blueprint
+4. Provision a device
+5. Run the backend service
 
 ---
 
@@ -94,7 +94,7 @@ Create `res/xml/restrictions.xml`:
 ```
 ## 🧩 Managed Configuration (Blueprint)
 
-```
+```json
 {
   "imei1": "${esper.imei1}",
   "imei2": "${esper.imei2}",
@@ -104,10 +104,10 @@ Create `res/xml/restrictions.xml`:
   "deviceName": "${esper.deviceName}"
 }
 ```
-Note on IP Address Handling
-Managed Configuration is intended for static identifiers (UUID, serial number, MAC, IMEI).
-IP addresses are dynamic and may change after provisioning, so the application must always use Android networking APIs to fetch the current IP at runtime and report it to the backend.
-Even if an IP were included in Managed Config, runtime validation would still be required.
+> **Note on IP Address Handling**  
+> Managed Configuration is intended for static identifiers (UUID, serial number, MAC, IMEI).  
+> IP addresses are dynamic and may change after provisioning, so the application must always use Android networking APIs to fetch the current IP at runtime and report it to the backend.  
+> Even if an IP were included in Managed Config, runtime validation would still be required.
 
 ## 🌐 Backend → Esper API Flow
 
@@ -115,13 +115,13 @@ IP mapping and policy logic must be handled on the backend.
 
 ### Get Device
 
-```
+```bash
 GET https://{tenant}-api.esper.cloud/api/device/v0/devices/{device_uuid}/
 Authorization: Bearer {access_token}
 ```
 ### Move Device
 
-```
+```bash
 PATCH https://{tenant}-api.esper.cloud/api/enterprise/{enterprise_id}/devicegroup/{group_id}/?action=add
 Authorization: Bearer {access_token}
 Content-Type: application/json
@@ -151,7 +151,7 @@ In this scenario, the backend must **explicitly trigger convergence** after the 
 Trigger Blueprint convergence explicitly from the backend:
 
 ```bash
-POST https://{tenant}-api.esper.cloud/api/v2/converge
+POST https://{tenant}-api.esper.cloud/api/v2/converge/
 Authorization: Bearer {access_token}
 Content-Type: application/json
 
