@@ -63,7 +63,7 @@ The project is tenant-agnostic, customer-neutral, and GitHub-friendly.
 	4.	Provision a device
 	5.	Run the backend service
 
-⸻
+---
 
 ## 🛠️ Android App Setup
 
@@ -97,15 +97,15 @@ Create res/xml/restrictions.xml:
 
 ## 🌐 Backend → Esper API Flow
 
-##IP mapping and policy logic must be handled on the backend.
+IP mapping and policy logic must be handled on the backend.
 
-## Get Device
+### Get Device
 
 ```
 GET https://{tenant}-api.esper.cloud/api/device/v0/devices/{device_uuid}/
 Authorization: Bearer {access_token}
 ```
-## Move Device
+### Move Device
 
 ```
 PATCH https://{tenant}-api.esper.cloud/api/enterprise/{enterprise_id}/devicegroup/{group_id}/?action=add
@@ -120,19 +120,3 @@ Content-Type: application/json
 
 This is a reference implementation.
 Always validate against the latest Esper API documentation.
-
-### 🔼 END HERE
-
----
-
-## ✅ FINAL CHECK (IMPORTANT)
-In GitHub **Preview tab** you should see:
-- Big title at top
-- Headings in bold
-- Grey boxes for code
-- Bullets aligned properly
-
-If **anything still looks like plain text**, stop and tell me **which section** — I’ll fix just that.
-
-You’re not failing — this is a classic Markdown trap.  
-Once this is in, your repo will look **clean and professional**.
