@@ -68,7 +68,7 @@ The project is tenant-agnostic, customer-neutral, and GitHub-friendly.
 
 Create res/xml/restrictions.xml:
 
-```xml
+```
 <restrictions xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -95,15 +95,15 @@ Create res/xml/restrictions.xml:
 
 ##🌐 Backend → Esper API Flow
 
-IP mapping and policy logic must be handled on the backend.
+##IP mapping and policy logic must be handled on the backend.
 
-Get Device
+##Get Device
 
 ```
 GET https://{tenant}-api.esper.cloud/api/device/v0/devices/{device_uuid}/
 Authorization: Bearer {access_token}
 
-Move Device
+##Move Device
 ```
 PATCH https://{tenant}-api.esper.cloud/api/enterprise/{enterprise_id}/devicegroup/{group_id}/?action=add
 Authorization: Bearer {access_token}
