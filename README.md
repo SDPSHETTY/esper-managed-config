@@ -55,7 +55,7 @@ The project is tenant-agnostic, customer-neutral, and GitHub-friendly.
 │ Device Mgmt│
 └────────────┘'''
 
-🚀 Quick Start
+##🚀 Quick Start
 	1.	Clone the repository
 	2.	Add restrictions.xml to your Android app
 	3.	Configure Managed Config in an Esper Blueprint
@@ -64,10 +64,11 @@ The project is tenant-agnostic, customer-neutral, and GitHub-friendly.
 
 ⸻
 
-🛠️ Android App Setup
+##🛠️ Android App Setup
 
 Create res/xml/restrictions.xml:
 
+```xml
 <restrictions xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -80,8 +81,9 @@ Create res/xml/restrictions.xml:
 
 </restrictions>
 
-🧩 Managed Configuration (Blueprint)
+##🧩 Managed Configuration (Blueprint)
 
+```
 {
   "imei1": "${esper.imei1}",
   "imei2": "${esper.imei2}",
@@ -91,16 +93,18 @@ Create res/xml/restrictions.xml:
   "deviceName": "${esper.deviceName}"
 }
 
-🌐 Backend → Esper API Flow
+##🌐 Backend → Esper API Flow
 
 IP mapping and policy logic must be handled on the backend.
 
 Get Device
 
+```
 GET https://{tenant}-api.esper.cloud/api/device/v0/devices/{device_uuid}/
 Authorization: Bearer {access_token}
 
 Move Device
+```
 PATCH https://{tenant}-api.esper.cloud/api/enterprise/{enterprise_id}/devicegroup/{group_id}/?action=add
 Authorization: Bearer {access_token}
 Content-Type: application/json
@@ -109,7 +113,7 @@ Content-Type: application/json
   "device_ids": ["{device_uuid}"]
 }
 
-📎 Disclaimer
+##📎 Disclaimer
 
 This is a reference implementation.
 Always validate against the latest Esper API documentation.
