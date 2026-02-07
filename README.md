@@ -88,6 +88,7 @@ Use Android’s RestrictionsManager API to retrieve these values at runtime.
 🧩 Blueprint Configuration
 
 #Attach the following Managed Configuration JSON to your application inside the Esper Blueprint:
+
 {
   "imei1": "${esper.imei1}",
   "imei2": "${esper.imei2}",
@@ -96,9 +97,11 @@ Use Android’s RestrictionsManager API to retrieve these values at runtime.
   "uuid": "${esper.uuid}",
   "deviceName": "${esper.deviceName}"
 }
+
 📲 Device Provisioning (Example)
 
 #Replace all placeholders with values from your Esper tenant.
+
 {
   "android.app.extra.PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME": "<DPC_PACKAGE>/<DPC_ADMIN_RECEIVER>",
   "android.app.extra.PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM": "<APK_CHECKSUM>",
@@ -113,18 +116,24 @@ Use Android’s RestrictionsManager API to retrieve these values at runtime.
   },
   "android.app.extra.PROVISIONING_LOCALE": "en_US"
 }
+
 #🌐 Backend → Esper API Flow
 
 #Design note
 #IP address tallying, IP-to-site mapping, geo resolution, and policy logic are intentionally handled on the backend, not on the device.
 
 #Fetch Device Details
+
 GET https://{tenant}-api.esper.cloud/api/device/v0/devices/{device_uuid}/
 Authorization: Bearer {access_token}
+
 #Resolve Target Group
+
 GET https://{tenant}-api.esper.cloud/api/enterprise/{enterprise_id}/devicegroup/?name={group_name}
 Authorization: Bearer {access_token}
+
 #Move Device to Target Group
+
 PATCH https://{tenant}-api.esper.cloud/api/enterprise/{enterprise_id}/devicegroup/{group_id}/?action=add
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -132,7 +141,9 @@ Authorization: Bearer {access_token}
 {
   "device_ids": ["{device_uuid}"]
 }
+
 If a Blueprint is linked to the group, convergence occurs automatically.
+
 📁 Repository Structure
 .
 ├── android-app/
