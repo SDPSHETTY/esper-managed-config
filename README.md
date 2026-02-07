@@ -80,7 +80,7 @@ Create res/xml/restrictions.xml:
     <entry android:key="macAddress" tools:ignore="ValidRestrictions" />
 
 </restrictions>
-
+```
 ##🧩 Managed Configuration (Blueprint)
 
 ```
@@ -91,7 +91,7 @@ Create res/xml/restrictions.xml:
   "macAddress": "${esper.macAddress}",
   "uuid": "${esper.uuid}",
   "deviceName": "${esper.deviceName}"
-}
+}```
 
 ##🌐 Backend → Esper API Flow
 
@@ -102,7 +102,7 @@ Create res/xml/restrictions.xml:
 ```
 GET https://{tenant}-api.esper.cloud/api/device/v0/devices/{device_uuid}/
 Authorization: Bearer {access_token}
-
+```
 ##Move Device
 ```
 PATCH https://{tenant}-api.esper.cloud/api/enterprise/{enterprise_id}/devicegroup/{group_id}/?action=add
@@ -112,7 +112,7 @@ Content-Type: application/json
 {
   "device_ids": ["{device_uuid}"]
 }
-
+```
 ##📎 Disclaimer
 
 This is a reference implementation.
