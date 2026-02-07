@@ -116,6 +116,38 @@ Content-Type: application/json
   "device_ids": ["{device_uuid}"]
 }
 ```
+## 🔄 Manual Blueprint Convergence (When Group Is Not Linked)
+
+If the **target Device Group does NOT have a Blueprint linked**, moving a device to that group **will not automatically trigger Blueprint convergence**.
+
+In this scenario, the backend must **explicitly trigger convergence** after the group move.
+
+---
+
+### When Is This Required?
+
+- Target device group has **no Blueprint linked**
+- Device is moved to the group via Esper API
+- Desired configuration must still be applied immediately
+
+---
+
+### Manual Converge API Call
+
+Trigger Blueprint convergence explicitly from the backend:
+
+```bash
+POST https://{tenant}-api.esper.cloud/api/v2/converge
+Authorization: Bearer {access_token}
+Content-Type: application/json
+
+{
+  "device_id": "{device_id}",
+  "converge_with_provision_option": false,
+  "schedule_type": "IMMEDIATE",
+  "schedule_args": {}
+}
+```
 ## 📎 Disclaimer
 
 This is a reference implementation.
