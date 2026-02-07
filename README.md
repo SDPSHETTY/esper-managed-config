@@ -10,7 +10,17 @@ This repository is a **reference project and solution accelerator** that demonst
 - Automatically move devices between Esper Device Groups using Esper Public APIs
 - Trigger Blueprint convergence without manual intervention
 
-The project is tenant-agnostic, customer-neutral, and GitHub-friendly.
+The project is **tenant-agnostic**, **customer-neutral**, and **GitHub-friendly**.
+
+---
+
+## ✅ Included Android Test App
+
+This repository also includes a **minimal Android test application** that demonstrates:
+- Reading Esper Managed Configuration values using `RestrictionsManager`
+- Fetching the **current IP address at runtime** (IP is dynamic and not static)
+
+The test app is intended for **validation and reference purposes only**.
 
 ---
 
