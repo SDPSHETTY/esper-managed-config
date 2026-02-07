@@ -53,7 +53,8 @@ The project is tenant-agnostic, customer-neutral, and GitHub-friendly.
 ┌─────▼──────┐
 │ Esper Cloud│
 │ Device Mgmt│
-└────────────┘```
+└────────────┘
+```
 
 ##🚀 Quick Start
 	1.	Clone the repository
@@ -105,13 +106,15 @@ Authorization: Bearer {access_token}
 ```
 ##Move Device
 
-```PATCH https://{tenant}-api.esper.cloud/api/enterprise/{enterprise_id}/devicegroup/{group_id}/?action=add
+```
+PATCH https://{tenant}-api.esper.cloud/api/enterprise/{enterprise_id}/devicegroup/{group_id}/?action=add
 Authorization: Bearer {access_token}
 Content-Type: application/json
 
 {
   "device_ids": ["{device_uuid}"]
-}```
+}
+```
 ##📎 Disclaimer
 
 This is a reference implementation.
