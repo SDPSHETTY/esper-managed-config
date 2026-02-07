@@ -72,6 +72,8 @@ Flow:
 Managed Configuration Placeholders
 
 #Create res/xml/restrictions.xml in your Android app:
+
+```xml
 <restrictions xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -83,12 +85,16 @@ Managed Configuration Placeholders
     <entry android:key="macAddress" tools:ignore="ValidRestrictions" />
 
 </restrictions>
+
 Use Android’s RestrictionsManager API to retrieve these values at runtime.
 
 🧩 Blueprint Configuration
 
 #Attach the following Managed Configuration JSON to your application inside the Esper Blueprint:
 
+### JSON (Managed Config / Provisioning)
+```md
+```json
 {
   "imei1": "${esper.imei1}",
   "imei2": "${esper.imei2}",
