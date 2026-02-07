@@ -53,7 +53,7 @@ The project is tenant-agnostic, customer-neutral, and GitHub-friendly.
 ┌─────▼──────┐
 │ Esper Cloud│
 │ Device Mgmt│
-└────────────┘
+└────────────┘'''
 
 🚀 Quick Start
 	1.	Clone the repository
@@ -68,7 +68,7 @@ The project is tenant-agnostic, customer-neutral, and GitHub-friendly.
 
 Create res/xml/restrictions.xml:
 
-'''<restrictions xmlns:android="http://schemas.android.com/apk/res/android"
+<restrictions xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
     <entry android:key="serialNumber" tools:ignore="ValidRestrictions" />
@@ -78,7 +78,7 @@ Create res/xml/restrictions.xml:
     <entry android:key="deviceName" tools:ignore="ValidRestrictions" />
     <entry android:key="macAddress" tools:ignore="ValidRestrictions" />
 
-</restrictions> '''
+</restrictions>
 
 🧩 Managed Configuration (Blueprint)
 
