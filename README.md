@@ -92,7 +92,8 @@ Create res/xml/restrictions.xml:
   "macAddress": "${esper.macAddress}",
   "uuid": "${esper.uuid}",
   "deviceName": "${esper.deviceName}"
-}```
+}
+```
 
 ## 🌐 Backend → Esper API Flow
 
