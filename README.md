@@ -53,7 +53,7 @@ The project is tenant-agnostic, customer-neutral, and GitHub-friendly.
 ┌─────▼──────┐
 │ Esper Cloud│
 │ Device Mgmt│
-└────────────┘'''
+└────────────┘```
 
 ##🚀 Quick Start
 	1.	Clone the repository
