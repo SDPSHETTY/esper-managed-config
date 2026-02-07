@@ -104,15 +104,14 @@ GET https://{tenant}-api.esper.cloud/api/device/v0/devices/{device_uuid}/
 Authorization: Bearer {access_token}
 ```
 ##Move Device
-```
-PATCH https://{tenant}-api.esper.cloud/api/enterprise/{enterprise_id}/devicegroup/{group_id}/?action=add
+
+```PATCH https://{tenant}-api.esper.cloud/api/enterprise/{enterprise_id}/devicegroup/{group_id}/?action=add
 Authorization: Bearer {access_token}
 Content-Type: application/json
 
 {
   "device_ids": ["{device_uuid}"]
-}
-```
+}```
 ##📎 Disclaimer
 
 This is a reference implementation.
