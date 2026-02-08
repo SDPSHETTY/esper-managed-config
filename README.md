@@ -111,7 +111,19 @@ Create `res/xml/restrictions.xml`:
 
 ## 🌐 Backend → Esper API Flow
 
-IP mapping and policy logic must be handled on the backend.
+In this architecture, the Android application does **not** make policy, role, or group
+decisions.
+
+The application’s responsibility is limited to:
+- Reading authoritative device identity from Managed Configuration
+- Observing runtime context available on the device
+- Reporting identity and observations to a backend service
+
+The backend is responsible for:
+- Aggregating and correlating reported observations
+- Applying business logic and environment-specific rules
+- Determining the desired operational state for the device
+- Invoking Esper APIs to enforce that state (for example, via group assignment and convergence)
 
 ### Get Device
 
