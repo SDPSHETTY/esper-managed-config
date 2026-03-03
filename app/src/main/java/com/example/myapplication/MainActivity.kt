@@ -5,43 +5,65 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.myapplication.ui.theme.MyApplicationTheme
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.myapplication.di.ServiceLocator
+import com.example.myapplication.presentation.screens.DeviceInfoScreen
+import com.example.myapplication.presentation.theme.MyApplicationTheme
+import com.example.myapplication.presentation.viewmodels.MainViewModel
+import com.example.myapplication.presentation.viewmodels.UiEffect
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         setContent {
             MyApplicationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                EsperDeviceManagerApp()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+fun EsperDeviceManagerApp() {
+    val context = androidx.compose.ui.platform.LocalContext.current
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyApplicationTheme {
-        Greeting("Android")
+    // Create ViewModel with dependency injection
+    val viewModel: MainViewModel = viewModel {
+        val deviceRepository = ServiceLocator.provideDeviceRepository(context)
+        MainViewModel(deviceRepository)
     }
+
+    // Collect UI state
+    val uiState by viewModel.uiState.collectAsState()
+
+    // Handle UI effects (would typically use LaunchedEffect for snackbars, navigation, etc.)
+    LaunchedEffect(Unit) {
+        viewModel.uiEffects.collect { effect ->
+            when (effect) {
+                is UiEffect.ShowSnackbar -> {
+                    // Handle snackbar display
+                    // In a real app, this would show a snackbar
+                    println("Snackbar: ${effect.message}")
+                }
+                is UiEffect.ShowError -> {
+                    // Handle error effects
+                    println("Error: ${effect.error.message}")
+                }
+                is UiEffect.NavigateToSettings -> {
+                    // Handle navigation to settings
+                    println("Navigate to settings")
+                }
+            }
+        }
+    }
+
+    DeviceInfoScreen(
+        uiState = uiState,
+        onEvent = viewModel::handleEvent,
+        modifier = Modifier.fillMaxSize()
+    )
 }

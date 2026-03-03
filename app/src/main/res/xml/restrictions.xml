@@ -1,0 +1,11 @@
+<restrictions xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <entry android:key="serialNumber" tools:ignore="ValidRestrictions" />
+    <entry android:key="uuid" tools:ignore="ValidRestrictions" />
+    <entry android:key="imei1" tools:ignore="ValidRestrictions" />
+    <entry android:key="imei2" tools:ignore="ValidRestrictions" />
+    <entry android:key="deviceName" tools:ignore="ValidRestrictions" />
+    <entry android:key="macAddress" tools:ignore="ValidRestrictions" />
+
+</restrictions>
